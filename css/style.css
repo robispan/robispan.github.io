@@ -1,0 +1,28 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  min-width: 430px;
+}
+
+.jumbotron {
+  background-color: #007bff;
+  color: white;
+  margin: 0;
+}
+
+.skills span {
+  font-size: 25px;
+  padding: 0 8px;
+}
+
+.container .container {
+  max-width: 750px;
+}
+
+
+.container .container .row a {
+  text-decoration: none;
+  color: inherit;
+}
