@@ -1,2 +1,1 @@
-# CV
-Junior dev CV
+# Portfolio created with a Bootstrap template.
