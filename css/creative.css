@@ -230,3 +230,28 @@ header.masthead {
     background-color: #ee4b28 !important; }
   .btn-primary:active, .btn-primary:focus {
     box-shadow: 0 0 0 0.2rem rgba(240, 95, 64, 0.5) !important; }
+
+
+	/* custom */
+	.project-demo-link {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16vw;
+    height: 4vw;
+    text-transform: uppercase;
+    font-family: "open sans",sans-serif;
+    font-size: 1.6vw;
+    color: #fff;
+    background: rgba(50,50,50,.85);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1em;
+	}
+	.project-demo-link:hover {
+		background: #f05f40;
+		color:	white;
+		text-decoration: none;
+	}
