@@ -82,6 +82,8 @@ p {
     border-radius: var(--radius);
     border: 1px solid var(--border);
     overflow: hidden;
+    display: flex;
+    gap: 12px;
 
     img {
       display: block;
