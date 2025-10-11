@@ -61,25 +61,25 @@ main {
     max-width: 100%;
     padding: 2rem 1rem;
   }
-  
+
   header.hero {
     padding: 4rem 1rem 3rem;
   }
-  
+
   .hero h1 {
     font-size: 2rem;
   }
-  
+
   .project {
     flex-direction: column;
     gap: 16px;
   }
-  
+
   .project .image {
     flex-basis: auto;
     width: 100%;
   }
-  
+
   .project .content {
     flex-basis: auto;
     width: 100%;
@@ -113,23 +113,24 @@ p {
   align-items: center;
   flex-wrap: wrap;
 
-  .image {
-    flex: 1 0;
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    overflow: hidden;
-    height: fit-content;
-    flex-basis: 160px;
-
-    img {
-      display: block;
-      width: 100%;
-    }
+  > * {
+    flex: 1 1 160px;
   }
 
-  .content {
-    flex: 2 1;
-    flex-basis: 300px;
+  .images {
+    display: flex;
+    gap: 12px;
+
+    .image {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      overflow: hidden;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
   }
 }
 
