@@ -9,6 +9,10 @@
 * {
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
     sans-serif;
@@ -76,14 +80,16 @@ p {
 .project {
   display: flex;
   gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
 
   .image {
-    flex: 1 1;
+    flex: 1 0;
     border-radius: var(--radius);
     border: 1px solid var(--border);
     overflow: hidden;
-    display: flex;
-    gap: 12px;
+    height: fit-content;
+    flex-basis: 160px;
 
     img {
       display: block;
@@ -93,6 +99,7 @@ p {
 
   .content {
     flex: 2 1;
+    flex-basis: 300px;
   }
 }
 
