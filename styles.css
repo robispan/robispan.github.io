@@ -20,7 +20,6 @@ body {
   color: var(--text);
   margin: 0;
   line-height: 1.6;
-  min-width: 600px;
 }
 header.hero {
   text-align: center;
@@ -54,6 +53,37 @@ main {
   max-width: 860px;
   margin: 0 auto;
   padding: 3rem 1.5rem;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  main {
+    max-width: 100%;
+    padding: 2rem 1rem;
+  }
+  
+  header.hero {
+    padding: 4rem 1rem 3rem;
+  }
+  
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .project {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .project .image {
+    flex-basis: auto;
+    width: 100%;
+  }
+  
+  .project .content {
+    flex-basis: auto;
+    width: 100%;
+  }
 }
 
 section {
