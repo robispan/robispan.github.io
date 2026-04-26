@@ -50,6 +50,9 @@ header.hero {
   max-width: 600px;
   margin: 0.5em auto 1.5em;
 }
+.muted {
+  color: var(--muted);
+}
 .btn {
   display: inline-block;
   background: var(--accent);

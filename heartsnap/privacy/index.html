@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="HeartSnap privacy policy — how the iOS app stores, encrypts, and processes your heart-rate data."
+    />
+    <meta name="theme-color" content="#007aff" />
+    <title>HeartSnap — Privacy Policy</title>
+    <link rel="icon" type="image/png" href="../../img/favicon.png" />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <header class="hero">
+      <h1>HeartSnap Privacy Policy</h1>
+      <p class="lead">
+        How HeartSnap stores, encrypts, and processes your heart-rate data.
+      </p>
+      <p class="muted">Last updated: 26 April 2026</p>
+    </header>
+
+    <main id="main">
+      <section aria-labelledby="uses-heading">
+        <h2 id="uses-heading">What HeartSnap uses</h2>
+        <ul>
+          <li>
+            <strong>Camera and flash</strong> to capture the signal needed for
+            a heart-rate measurement. The camera feed is processed entirely on
+            your device and is never recorded, transmitted, or stored.
+          </li>
+          <li>
+            <strong>Apple Health</strong> (optional, write-only) when you save
+            a reading, so the measurement appears alongside your other health
+            data.
+          </li>
+          <li>
+            <strong>Your mail app</strong> when you tap <em>Send Feedback</em>.
+            The contents of that email are subject to your email provider's
+            policies, not HeartSnap's.
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="storage-heading">
+        <h2 id="storage-heading">Storage and access</h2>
+        <p>
+          All HeartSnap-owned data — heart-rate readings, the optional state
+          label, and your date of birth (if you choose to enter it) — is stored
+          in your iCloud account's private database. HeartSnap does not have
+          access to this data.
+        </p>
+        <p>
+          A copy of each heart-rate reading is also written to Apple Health on
+          your device so that it appears alongside your other health data.
+          HeartSnap never reads from Apple Health; the write is one-way.
+        </p>
+      </section>
+
+      <section aria-labelledby="encryption-heading">
+        <h2 id="encryption-heading">Encryption</h2>
+        <p>
+          Your data is encrypted in transit and at rest. The state label
+          associated with each reading and your date of birth are end-to-end
+          encrypted using CloudKit's encrypted-values feature, which means they
+          remain encrypted under your iCloud key even when Advanced Data
+          Protection is off. Other fields (heart-rate value, timestamp,
+          internal record IDs) are encrypted at rest under Apple-held keys;
+          full end-to-end encryption for those requires Advanced Data
+          Protection in your iCloud settings.
+        </p>
+      </section>
+
+      <section aria-labelledby="lawful-basis-heading">
+        <h2 id="lawful-basis-heading">Lawful basis (EU/UK)</h2>
+        <p>
+          HeartSnap processes special-category data (heart-rate measurements,
+          optional date of birth) under GDPR Art. 9(2)(a) — explicit consent.
+          By tapping <strong>Save reading</strong>, you consent to processing
+          the reading on your device and storing it in your iCloud account.
+        </p>
+      </section>
+
+      <section aria-labelledby="uninstall-heading">
+        <h2 id="uninstall-heading">Uninstall behaviour</h2>
+        <p>
+          When you delete HeartSnap, iOS may ask whether you also want to
+          delete your Health data. If you tap Delete, the heart-rate samples
+          HeartSnap wrote to Apple Health are removed. Your HeartSnap-owned
+          readings stored in your iCloud private database are unaffected and
+          will return on reinstall.
+        </p>
+        <p>
+          You can also delete all HeartSnap-owned data from inside the app via
+          <strong>Profile → Delete all my data</strong>. That action wipes the
+          iCloud copy on every device signed into your Apple ID.
+        </p>
+      </section>
+
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <p>
+          Questions about this policy:
+          <a href="mailto:contact@robispan.eu" class="link">contact@robispan.eu</a>.
+        </p>
+        <p>
+          <a href="../../" class="link">← Back to robispan.eu</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <small
+        >© <span id="year"></span> Robert Špan — Built with care and
+        precision.</small
+      >
+    </footer>
+
+    <script src="../../script.js"></script>
+  </body>
+</html>
