@@ -70,7 +70,7 @@
         <p>
           Your data is encrypted in transit and at rest. The context tag and
           feeling attached to each reading, and everything in your profile
-          (date of birth, biological sex, height, weight), are end-to-end
+          (date of birth, biological sex), are end-to-end
           encrypted using CloudKit's encrypted-values feature, which means they
           remain encrypted under your iCloud key even when Advanced Data
           Protection is off. Other fields (heart-rate value, timestamp,
@@ -83,35 +83,38 @@
       <section aria-labelledby="leaves-heading">
         <h2 id="leaves-heading">What leaves your device</h2>
         <p>
-          Your readings never leave your own iCloud account. Three limited
-          streams of technical data do go to service providers, and none of
-          them carries a heart-rate value, a context tag, how you felt, or
-          anything that identifies you.
+          Your stored readings — the history you see in the app — stay in your
+          own iCloud account. Separately, three streams of technical data go to
+          service providers so the app can be kept working. None of them is
+          linked to an account, a name, or an advertising identifier, and
+          HeartSnap does no cross-app tracking.
         </p>
         <ul>
           <li>
-            <strong>Usage analytics</strong> (Google Firebase Analytics).
-            Which screens you open, whether a measurement started, finished,
-            or failed, and which subscription steps you reached. Deliberately
-            excluded: <em>your BPM values and your context tags are never
-            sent</em>. HeartSnap does not set a user ID, so these events are
-            not linked to your identity, and there is no advertising
-            identifier and no cross-app tracking.
+            <strong>Usage analytics</strong> (Google Firebase Analytics). Which
+            features you open, whether a measurement started, finished, or
+            failed, and which subscription steps you reached. These events
+            include <strong>the heart-rate value of a completed reading</strong>,
+            and, when you save a reading to Apple Health, <strong>the single
+            context tag you chose</strong>. Each measurement also carries a
+            randomly generated session identifier, used to match a failed
+            measurement to its diagnostics. HeartSnap never sets a user ID, so
+            nothing is tied to you as a person.
           </li>
           <li>
             <strong>Crash reports</strong> (Google Firebase Crashlytics). If
-            the app crashes, a stack trace with device model and OS version is
-            sent so the fault can be fixed.
+            something goes wrong, a stack trace, the error message, recent
+            in-app breadcrumbs, and device and OS details are sent so the fault
+            can be fixed.
           </li>
           <li>
             <strong>Failed-measurement diagnostics</strong> (Google Cloud
             Firestore). When a measurement fails to produce a reading,
-            HeartSnap uploads why it failed, how long it ran, your device
-            model and iOS version, and the internal signal statistics from
-            that attempt — the counts the algorithm uses to judge signal
-            quality. This is what makes it possible to fix measurement
-            problems on hardware we do not own. <strong>No heart rate is
-            produced by a failed measurement, so none is sent.</strong>
+            HeartSnap uploads why it failed, how long it ran, your device model
+            and iOS version, and a log of the measurement attempt. That log
+            includes <strong>the intermediate heart-rate estimates the
+            algorithm computed before giving up</strong>. This is what makes it
+            possible to fix measurement problems on hardware we do not own.
           </li>
         </ul>
         <p>
@@ -127,15 +130,18 @@
         <p>
           HeartSnap processes special-category data (heart-rate measurements,
           optional date of birth and biological sex) under GDPR Art. 9(2)(a) —
-          explicit consent. By tapping <strong>Save reading</strong>, you
-          consent to processing the reading on your device and storing it in
-          your iCloud account.
+          explicit consent. By tapping <strong>Save</strong>, you consent to
+          processing the reading on your device and storing it in your iCloud
+          account.
         </p>
         <p>
           The analytics, crash reports, and failed-measurement diagnostics
-          described above contain no health data and no identifiers, and are
-          processed under GDPR Art. 6(1)(f) — legitimate interests, namely
-          keeping the app working and fixing measurement failures.
+          described above are processed under GDPR Art. 6(1)(f) — legitimate
+          interests, namely keeping the app working and fixing measurement
+          failures. Some of that data is derived from a heart-rate
+          measurement. If you would rather it were not collected, write to
+          <a href="mailto:contact@robispan.eu" class="link">contact@robispan.eu</a>
+          and it will be stopped for your device.
         </p>
       </section>
 
