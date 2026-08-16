@@ -19,7 +19,7 @@
       <p class="lead">
         How HeartSnap stores, encrypts, and processes your heart-rate data.
       </p>
-      <p class="muted">Last updated: 26 April 2026</p>
+      <p class="muted">Last updated: 16 August 2026</p>
     </header>
 
     <main id="main">
@@ -37,9 +37,14 @@
             data.
           </li>
           <li>
-            <strong>Your mail app</strong> when you tap <em>Send Feedback</em>.
-            The contents of that email are subject to your email provider's
-            policies, not HeartSnap's.
+            <strong>Your mail app</strong> when you tap <em>Send feedback</em>
+            or <em>Request a feature</em>. The contents of that email are
+            subject to your email provider's policies, not HeartSnap's.
+          </li>
+          <li>
+            <strong>Apple's payment system</strong> if you subscribe to
+            HeartSnap Plus. Payment is handled entirely by Apple — HeartSnap
+            never sees your card or billing details.
           </li>
         </ul>
       </section>
@@ -47,10 +52,11 @@
       <section aria-labelledby="storage-heading">
         <h2 id="storage-heading">Storage and access</h2>
         <p>
-          All HeartSnap-owned data — heart-rate readings, the optional state
-          label, and your date of birth (if you choose to enter it) — is stored
-          in your iCloud account's private database. HeartSnap does not have
-          access to this data.
+          All HeartSnap-owned data — your heart-rate readings, the optional
+          context tag and how you felt, and the details you choose to add about
+          yourself (date of birth, biological sex) — is stored in your iCloud
+          account's private database. HeartSnap does not have access to this
+          data.
         </p>
         <p>
           A copy of each heart-rate reading is also written to Apple Health on
@@ -62,8 +68,9 @@
       <section aria-labelledby="encryption-heading">
         <h2 id="encryption-heading">Encryption</h2>
         <p>
-          Your data is encrypted in transit and at rest. The state label
-          associated with each reading and your date of birth are end-to-end
+          Your data is encrypted in transit and at rest. The context tag and
+          feeling attached to each reading, and everything in your profile
+          (date of birth, biological sex, height, weight), are end-to-end
           encrypted using CloudKit's encrypted-values feature, which means they
           remain encrypted under your iCloud key even when Advanced Data
           Protection is off. Other fields (heart-rate value, timestamp,
@@ -73,13 +80,62 @@
         </p>
       </section>
 
+      <section aria-labelledby="leaves-heading">
+        <h2 id="leaves-heading">What leaves your device</h2>
+        <p>
+          Your readings never leave your own iCloud account. Three limited
+          streams of technical data do go to service providers, and none of
+          them carries a heart-rate value, a context tag, how you felt, or
+          anything that identifies you.
+        </p>
+        <ul>
+          <li>
+            <strong>Usage analytics</strong> (Google Firebase Analytics).
+            Which screens you open, whether a measurement started, finished,
+            or failed, and which subscription steps you reached. Deliberately
+            excluded: <em>your BPM values and your context tags are never
+            sent</em>. HeartSnap does not set a user ID, so these events are
+            not linked to your identity, and there is no advertising
+            identifier and no cross-app tracking.
+          </li>
+          <li>
+            <strong>Crash reports</strong> (Google Firebase Crashlytics). If
+            the app crashes, a stack trace with device model and OS version is
+            sent so the fault can be fixed.
+          </li>
+          <li>
+            <strong>Failed-measurement diagnostics</strong> (Google Cloud
+            Firestore). When a measurement fails to produce a reading,
+            HeartSnap uploads why it failed, how long it ran, your device
+            model and iOS version, and the internal signal statistics from
+            that attempt — the counts the algorithm uses to judge signal
+            quality. This is what makes it possible to fix measurement
+            problems on hardware we do not own. <strong>No heart rate is
+            produced by a failed measurement, so none is sent.</strong>
+          </li>
+        </ul>
+        <p>
+          If you subscribe, purchase and renewal status is processed by
+          <strong>RevenueCat</strong> against an anonymous identifier so the
+          app knows whether HeartSnap Plus is active. Apple handles the payment
+          itself.
+        </p>
+      </section>
+
       <section aria-labelledby="lawful-basis-heading">
         <h2 id="lawful-basis-heading">Lawful basis (EU/UK)</h2>
         <p>
           HeartSnap processes special-category data (heart-rate measurements,
-          optional date of birth) under GDPR Art. 9(2)(a) — explicit consent.
-          By tapping <strong>Save reading</strong>, you consent to processing
-          the reading on your device and storing it in your iCloud account.
+          optional date of birth and biological sex) under GDPR Art. 9(2)(a) —
+          explicit consent. By tapping <strong>Save reading</strong>, you
+          consent to processing the reading on your device and storing it in
+          your iCloud account.
+        </p>
+        <p>
+          The analytics, crash reports, and failed-measurement diagnostics
+          described above contain no health data and no identifiers, and are
+          processed under GDPR Art. 6(1)(f) — legitimate interests, namely
+          keeping the app working and fixing measurement failures.
         </p>
       </section>
 
@@ -94,8 +150,9 @@
         </p>
         <p>
           You can also delete all HeartSnap-owned data from inside the app via
-          <strong>Profile → Delete all my data</strong>. That action wipes the
-          iCloud copy on every device signed into your Apple ID.
+          <strong>Settings → Delete all my data</strong>. That action wipes the
+          iCloud copy on every device signed into your Apple ID, and cannot be
+          undone.
         </p>
       </section>
 
