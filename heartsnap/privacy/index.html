@@ -93,13 +93,13 @@
           <li>
             <strong>Usage analytics</strong> (Google Firebase Analytics). Which
             features you open, whether a measurement started, finished, or
-            failed, and which subscription steps you reached. These events
-            include <strong>the heart-rate value of a completed reading</strong>,
-            and, when you save a reading to Apple Health, <strong>the single
-            context tag you chose</strong>. Each measurement also carries a
-            randomly generated session identifier, used to match a failed
-            measurement to its diagnostics. HeartSnap never sets a user ID, so
-            nothing is tied to you as a person.
+            failed, and which subscription steps you reached.
+            <strong>No heart-rate value and no context tag is ever included</strong>
+            — these events record that something happened, never what it
+            measured. Each measurement carries a randomly generated session
+            identifier, used only to match a failed measurement to its
+            diagnostics. HeartSnap never sets a user ID, so nothing is tied to
+            you as a person.
           </li>
           <li>
             <strong>Crash reports</strong> (Google Firebase Crashlytics). If
@@ -111,10 +111,11 @@
             <strong>Failed-measurement diagnostics</strong> (Google Cloud
             Firestore). When a measurement fails to produce a reading,
             HeartSnap uploads why it failed, how long it ran, your device model
-            and iOS version, and a log of the measurement attempt. That log
-            includes <strong>the intermediate heart-rate estimates the
-            algorithm computed before giving up</strong>. This is what makes it
-            possible to fix measurement problems on hardware we do not own.
+            and iOS version, and a log of the measurement attempt — how many
+            pulses were detected, how many were rejected and why, and how long
+            each stage took. <strong>No heart-rate value appears in it.</strong>
+            This is what makes it possible to fix measurement problems on
+            hardware we do not own.
           </li>
         </ul>
         <p>
