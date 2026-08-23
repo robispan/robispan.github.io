@@ -1,119 +1,160 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta
       name="description"
-      content="Robi Špan — Frontend Engineer. Portfolio and Apple Developer verification site."
+      content="Robert Špan — senior frontend engineer. Maker of HeartSnap, an iOS app that reads your pulse through the phone camera."
     />
-    <meta name="theme-color" content="#007aff" />
-    <title>Robi Špan — Frontend Engineer</title>
+    <meta name="theme-color" content="#fbfaf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121011" media="(prefers-color-scheme: dark)" />
+    <title>Robert Špan — Frontend Engineer</title>
     <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <header class="hero">
+      <p class="eyebrow">Ljubljana · Frontend engineer</p>
       <h1>Robert Špan</h1>
       <p class="lead">
-        Senior Frontend Engineer crafting scalable, elegant web and native
-        experiences. Currently building a Heart Rate iOS app for real-time,
-        privacy-first health tracking.
+        I build interfaces where the hard part is invisible. Most recently: reading a
+        heartbeat from a phone camera.
       </p>
-      <a href="#project" class="btn" role="button" aria-label="View Heart Rate App project details">View Heart Rate App</a>
     </header>
 
+    <div class="pulse">
+      <div class="pulse__frame">
+        <canvas
+          id="pulse"
+          class="pulse__canvas"
+          role="img"
+          aria-label="An animated pulse waveform of the kind HeartSnap derives from light passing through a fingertip."
+        ></canvas>
+        <div class="pulse__readout" aria-hidden="true">
+          <span class="pulse__bpm" id="bpm">68</span>
+          <span class="pulse__unit">bpm</span>
+        </div>
+      </div>
+      <p class="pulse__caption">
+        A photoplethysmogram: the sharp rise is the heart contracting, the small dip after it
+        is the aortic valve closing. HeartSnap finds this in the flicker of light through a
+        fingertip. Illustrative — not a live reading.
+      </p>
+    </div>
+
     <main id="main">
-      <section id="about" aria-labelledby="about-heading">
-        <h2 id="about-heading">About</h2>
-        <p>
-          I’m a frontend engineer with over six years of experience designing
-          scalable, maintainable architectures — specializing in Angular and
-          TypeScript. At Turtl, I lead the creation of performant interfaces
-          that balance innovation and simplicity while mentoring other
-          engineers.
-        </p>
-        <p>
-          My current focus is combining elegant design and precise engineering
-          in the Apple ecosystem. The Heart Rate app represents my approach —
-          clean, reliable, and user-centered.
-        </p>
-      </section>
+      <section id="heartsnap" aria-labelledby="heartsnap-heading">
+        <p class="eyebrow">Shipped · iOS</p>
+        <h2 id="heartsnap-heading">HeartSnap</h2>
 
-      <section id="project" aria-labelledby="project-heading">
-        <h2 id="project-heading">HeartSnap — iOS App</h2>
-        <div class="card project">
-          <div class="images">
-            <div class="image">
-              <img src="img/heartsnap1.png" alt="HeartSnap iOS app main screen showing heart rate measurement interface with clean, minimalist design" />
-            </div>
+        <div class="split">
+          <div>
+            <p>
+              Put a fingertip over the camera and flash. Every heartbeat pushes blood through
+              the skin and changes how much light gets back — far too little to see, enough
+              to measure. HeartSnap reads that flicker for fifteen seconds and turns it into
+              a number.
+            </p>
+            <p>
+              The interesting part is what it refuses to do. A shaky hand or a half-covered
+              lens produces something that <em>looks</em> like a pulse and isn't. HeartSnap
+              would rather tell you it couldn't get a stable reading than hand you a
+              confident wrong number.
+            </p>
+            <p>
+              Readings stay on your device and in your own private iCloud, which I cannot
+              read. No account, no sign-up.
+            </p>
 
-            <div class="image">
-              <img src="img/heartsnap2.png" alt="HeartSnap iOS app history screen displaying past heart rate measurements in a list format" />
-            </div>
+            <ul class="routes">
+              <li>
+                <a class="route" href="heartsnap/support/">Support<span>Help and contact</span></a>
+              </li>
+              <li>
+                <a class="route" href="heartsnap/privacy/">Privacy<span>What leaves the device</span></a>
+              </li>
+              <li>
+                <a class="route" href="heartsnap/terms/">Terms<span>Terms of use</span></a>
+              </li>
+            </ul>
           </div>
 
-          <div class="content">
-            <p>
-              The Heart Rate app measures your heart rate using your iPhone's
-              camera and flashlight. Simply place your finger over the camera
-              lens and watch as the app accurately detects your pulse through
-              subtle color changes in your fingertip.
-            </p>
-            <p>
-              Features a clean, minimalist interface that displays your
-              real-time heart rate with precision. All measurements are
-              automatically stored in your personal history, and everything
-              stays private on your device. No additional hardware required.
-            </p>
-            <p class="muted">
-              Status: In development — preparing for App Store release.
-            </p>
+          <div class="images">
+            <div class="image">
+              <img
+                src="img/heartsnap1.png"
+                alt="HeartSnap taking a measurement, showing the live pulse ring and BPM."
+                loading="lazy"
+              />
+            </div>
+            <div class="image">
+              <img
+                src="img/heartsnap2.png"
+                alt="HeartSnap reading history, listing past measurements by time and BPM."
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
 
+      <section id="about" aria-labelledby="about-heading">
+        <p class="eyebrow">Background</p>
+        <h2 id="about-heading">What I work on</h2>
+        <p>
+          Six years building web interfaces, mostly Angular and TypeScript. At Turtl I lead
+          frontend architecture and mentor the engineers around me — work that is less about
+          adding features than about keeping a large codebase understandable while it grows.
+        </p>
+        <p>
+          HeartSnap is the other half of that: a small product taken all the way, from signal
+          processing to store metadata, where every decision is mine and every shortcut shows
+          up later.
+        </p>
+      </section>
+
       <section id="contact" aria-labelledby="contact-heading">
+        <p class="eyebrow">Get in touch</p>
         <h2 id="contact-heading">Contact</h2>
         <p>
-          Email:
-          <a href="mailto:robi.span@gmail.com" class="link" aria-label="Send email to contact@robispan.eu"
-            >contact@robispan.eu</a
-          >
+          For help with HeartSnap, the <a href="heartsnap/support/">support page</a> answers
+          the common questions first. Anything else, email is best.
         </p>
-        <p>
-          LinkedIn:
-          <a
-            href="https://www.linkedin.com/in/robert-špan/"
-            target="_blank"
-            class="link"
-            aria-label="Visit Robert Špan's LinkedIn profile (opens in new tab)"
-            >linkedin.com/in/robert-špan</a
-          >
-        </p>
-        <p>
-          GitHub:
-          <a href="https://github.com/robispan" target="_blank" class="link" aria-label="Visit Robert Špan's GitHub profile (opens in new tab)"
-            >github.com/robispan</a
-          >
-        </p>
+        <ul class="contact-list">
+          <li>
+            <span class="k">Email</span>
+            <a href="mailto:contact@robispan.eu">contact@robispan.eu</a>
+          </li>
+          <li>
+            <span class="k">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/robert-špan/" target="_blank" rel="noopener"
+              >linkedin.com/in/robert-špan</a
+            >
+          </li>
+          <li>
+            <span class="k">GitHub</span>
+            <a href="https://github.com/robispan" target="_blank" rel="noopener"
+              >github.com/robispan</a
+            >
+          </li>
+        </ul>
       </section>
     </main>
 
     <footer>
+      <p>© <span id="year"></span> Robert Špan</p>
       <p>
-        <small
-          >© <span id="year"></span> Robert Špan — Built with care and
-          precision.</small
-        >
-      </p>
-      <p>
-        <small>
-          <a href="heartsnap/privacy/" class="link">HeartSnap Privacy Policy</a>
-          ·
-          <a href="heartsnap/terms/" class="link">HeartSnap Terms of Use</a>
-        </small>
+        <a href="heartsnap/support/">HeartSnap support</a> ·
+        <a href="heartsnap/privacy/">Privacy policy</a> ·
+        <a href="heartsnap/terms/">Terms of use</a>
       </p>
     </footer>
 

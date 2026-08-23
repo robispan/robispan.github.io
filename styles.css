@@ -1,188 +1,410 @@
+/*
+  Shared across the homepage, the HeartSnap support page, and the legal pages.
+  The legal pages predate this rewrite and still use .hero / .lead / .muted / main#main,
+  so those hooks are kept working deliberately — changing them would silently break the two
+  URLs the App Store listing points at.
+
+  Palette: warm paper and warm ink rather than white-on-black, with the app's own coral as
+  the single accent. The coral appears only on the pulse trace, links, and one rule, so the
+  trace stays the thing you remember.
+*/
+
 :root {
-  --bg: #fff;
-  --text: #111;
-  --muted: #444;
-  --accent: #007aff;
-  --border: #eaeaea;
-  --radius: 12px;
-  --focus: #007aff;
-  --focus-ring: 0 0 0 3px rgba(0, 122, 255, 0.3);
+  --paper: #fbfaf9;
+  --raised: #ffffff;
+  --sunken: #f3efec;
+  --ink: #14110f;
+  --body: #4a4441;
+  --muted: #8a817c;
+  --line: #e8e3df;
+
+  --coral: #d9452b;
+  --coral-soft: #fdeeea;
+
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --text: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --measure: 64ch;
+  --gutter: clamp(1.25rem, 5vw, 3rem);
+
+  --focus: var(--coral);
+  --focus-ring: 0 0 0 3px rgba(217, 69, 43, 0.28);
+  --radius: 14px;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121011;
+    --raised: #1a1718;
+    --sunken: #201c1d;
+    --ink: #f5f1ee;
+    --body: #c3b9b4;
+    --muted: #8d8380;
+    --line: #2b2626;
+
+    --coral: #ff7a62;
+    --coral-soft: #2a1611;
+
+    --focus-ring: 0 0 0 3px rgba(255, 122, 98, 0.3);
+  }
+}
+
 * {
   box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--body);
+  font: 400 clamp(1rem, 0.97rem + 0.15vw, 1.0625rem) / 1.65 var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- shared rhythm ---------- */
+
+main {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+section {
+  padding: clamp(3rem, 8vw, 5.5rem) 0;
+  border-top: 1px solid var(--line);
+}
+
+section:first-of-type {
+  border-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+  margin: 0 0 0.6em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
+  line-height: 1.02;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.125rem;
+  line-height: 1.3;
+  margin-bottom: 0.4em;
+}
+
+p,
+li {
+  max-width: var(--measure);
+}
+
+p {
+  margin: 0 0 1.1em;
+}
+
+ul {
+  padding-left: 1.1rem;
+  margin: 0 0 1.2em;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+
+strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+a,
+.link {
+  color: var(--coral);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:where(a, button, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+  box-shadow: var(--focus-ring);
+}
+
+.lead {
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+  line-height: 1.5;
+  color: var(--body);
+  max-width: 46ch;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+/* Uppercase mono is the utility register throughout: it marks metadata about the content
+   rather than the content itself. */
+.eyebrow {
+  font: 500 0.72rem/1 var(--mono);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1.1rem;
+}
+
+/* ---------- hero ---------- */
+
+header.hero {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: clamp(3.5rem, 10vw, 7rem) var(--gutter) clamp(2rem, 5vw, 3rem);
+}
+
+header.hero .lead {
+  margin-bottom: 0;
+}
+
+/*
+  The pulse trace — the one element specific to what this subject actually built: a
+  photoplethysmogram, the waveform HeartSnap derives from light passing through a
+  fingertip. Drawn rather than illustrated, because on an engineer's site the rendering is
+  the argument.
+*/
+.pulse {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.pulse__frame {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--raised);
+  overflow: hidden;
+}
+
+.pulse__canvas {
+  display: block;
+  width: 100%;
+  height: clamp(140px, 22vw, 200px);
+}
+
+.pulse__readout {
+  position: absolute;
+  left: clamp(0.9rem, 2vw, 1.4rem);
+  top: clamp(0.7rem, 2vw, 1.1rem);
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.pulse__bpm {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.pulse__unit {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pulse__caption {
+  margin: 0.9rem 0 0;
+  font: 400 0.85rem/1.5 var(--mono);
+  color: var(--muted);
+  max-width: var(--measure);
+}
+
+/* ---------- blocks ---------- */
+
+.card {
+  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.split {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+@media (min-width: 52rem) {
+  .split {
+    grid-template-columns: 1.05fr 0.95fr;
+  }
+}
+
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.images img,
+.image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+/* ---------- routes ---------- */
+
+.routes {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 1.5rem 0 0;
+  list-style: none;
+}
+
+@media (min-width: 40rem) {
+  .routes {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.routes li {
+  margin: 0;
+  max-width: none;
+}
+
+.route {
+  display: block;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--raised);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.route:hover {
+  border-color: var(--coral);
+}
+
+.route span {
+  display: block;
+  font: 400 0.82rem/1.4 var(--text);
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+/* ---------- contact ---------- */
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contact-list li {
+  max-width: none;
+  margin: 0;
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.contact-list .k {
+  font: 500 0.72rem/1.6 var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  min-width: 5.5rem;
+}
+
+/* ---------- support page ---------- */
+
+.qa {
+  border-top: 1px solid var(--line);
+  padding: 1.4rem 0 0.4rem;
+}
+
+.qa:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.notice {
+  border-left: 2px solid var(--coral);
+  background: var(--coral-soft);
+  color: var(--ink);
+  padding: 1rem 1.15rem;
+  border-radius: 0 10px 10px 0;
+  margin: 0 0 1.5rem;
+}
+
+.notice p {
+  margin: 0;
+  max-width: none;
+}
+
+/* ---------- footer ---------- */
+
+footer {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2.5rem var(--gutter) 4rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+footer p {
+  margin: 0 0 0.4em;
+  max-width: none;
+}
+
+/* ---------- motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
-    sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  margin: 0;
-  line-height: 1.6;
-}
-header.hero {
-  text-align: center;
-  padding: 6rem 1rem 4rem;
-  border-bottom: 1px solid var(--border);
-}
-.hero h1 {
-  font-size: 2.5rem;
-  margin: 0.3em 0;
-}
-.hero p.lead {
-  color: var(--muted);
-  max-width: 600px;
-  margin: 0.5em auto 1.5em;
-}
-.muted {
-  color: var(--muted);
-}
-.btn {
-  display: inline-block;
-  background: var(--accent);
-  color: white;
-  padding: 0.75em 1.5em;
-  border-radius: var(--radius);
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity 0.2s;
-}
-.btn:hover {
-  opacity: 0.85;
-}
-
-.btn:focus {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
-
-main {
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 3rem 1.5rem;
-}
-
-/* Mobile responsive styles */
-@media (max-width: 768px) {
-  main {
-    max-width: 100%;
-    padding: 2rem 1rem;
-  }
-
-  header.hero {
-    padding: 4rem 1rem 3rem;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
-  }
-
-  .project {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .project .image {
-    flex-basis: auto;
-    width: 100%;
-  }
-
-  .project .content {
-    flex-basis: auto;
-    width: 100%;
-  }
-}
-
-section {
-  margin-bottom: 4rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  margin-bottom: 1em;
-}
-
-.card {
-  background: #fafafa;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.project {
-  display: flex;
-  gap: 24px;
-  align-items: center;
-  flex-wrap: wrap;
-
-  > * {
-    flex: 1 1 160px;
-  }
-
-  .images {
-    display: flex;
-    gap: 12px;
-
-    .image {
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      overflow: hidden;
-
-      img {
-        display: block;
-        width: 100%;
-      }
-    }
-  }
-}
-
-footer {
-  text-align: center;
-  border-top: 1px solid var(--border);
-  padding: 2rem 1rem;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-a.link {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a.link:hover {
-  text-decoration: underline;
-}
-
-a.link:focus {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-/* Focus styles for all interactive elements */
-a:focus,
-button:focus {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
 }
