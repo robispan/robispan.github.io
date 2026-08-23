@@ -7,9 +7,16 @@
       name="description"
       content="HeartSnap privacy policy — how the iOS app stores, encrypts, and processes your heart-rate data."
     />
-    <meta name="theme-color" content="#007aff" />
+    <meta name="theme-color" content="#fbfaf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121011" media="(prefers-color-scheme: dark)" />
     <title>HeartSnap — Privacy Policy</title>
     <link rel="icon" type="image/png" href="../../img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
     <link rel="stylesheet" href="../../styles.css" />
   </head>
 
@@ -177,10 +184,17 @@
 
     <footer>
       <small
-        >© <span id="year"></span> Robert Špan — Built with care and
-        precision.</small
+        >© <span id="year"></span> Robert Špan</small
       >
     </footer>
+    <nav class="pulse" aria-label="More HeartSnap pages">
+      <ul class="routes">
+        <li><a class="route" href="../support/">Support<span>Help and contact</span></a></li>
+        <li><a class="route" href="../terms/">Terms<span>The other document</span></a></li>
+        <li><a class="route" href="../../">robispan.eu<span>About the developer</span></a></li>
+      </ul>
+    </nav>
+
 
     <script src="../../script.js"></script>
   </body>

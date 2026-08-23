@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="HeartSnap support — how to take a reading, what to do when a reading fails, managing HeartSnap Plus, and how to get in touch."
+    />
+    <meta name="theme-color" content="#fbfaf9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121011" media="(prefers-color-scheme: dark)" />
+    <title>HeartSnap — Support</title>
+    <link rel="icon" type="image/png" href="../../img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+
+  <body>
+    <header class="hero">
+      <p class="eyebrow">HeartSnap · Support</p>
+      <h1>Help with HeartSnap</h1>
+      <p class="lead">
+        Most questions have a quick answer below. If yours isn't here, email me.
+      </p>
+    </header>
+
+    <main id="main">
+      <section aria-labelledby="contact-heading">
+        <h2 id="contact-heading">Contact</h2>
+        <div class="notice">
+          <p>
+            <strong>Email <a href="mailto:contact@robispan.eu">contact@robispan.eu</a></strong>
+            — telling me your iPhone model and iOS version saves a round trip.
+          </p>
+        </div>
+        <p class="muted">
+          HeartSnap is made by Robert Špan, an independent developer.
+        </p>
+      </section>
+
+      <section aria-labelledby="reading-heading">
+        <h2 id="reading-heading">Taking a reading</h2>
+        <p>
+          HeartSnap measures your pulse with the rear camera and flash. Each heartbeat changes
+          how much light passes through your fingertip, and the app reads that change.
+        </p>
+        <ul>
+          <li>Cover <strong>both the rear camera lens and the flash</strong> with one fingertip.</li>
+          <li>Use gentle, steady pressure — pressing hard flattens the signal.</li>
+          <li>Rest your hand on something and keep still for the full <strong>15 seconds</strong>.</li>
+          <li>The flash stays on the whole time. The phone getting slightly warm is normal.</li>
+        </ul>
+        <p class="muted">
+          A physical iPhone with a flash is required. HeartSnap cannot work on iPad or in the
+          Simulator.
+        </p>
+      </section>
+
+      <section aria-labelledby="problems-heading">
+        <h2 id="problems-heading">If something goes wrong</h2>
+
+        <div class="qa">
+          <h3>“Couldn't get a stable reading”</h3>
+          <p>
+            This is the app refusing to guess. It means the signal was too noisy to trust, and
+            it is working as intended — a wrong number would be worse than no number.
+          </p>
+          <p>
+            Almost always one of: the fingertip is not covering both the lens and the flash,
+            the hand is moving, or the pressure is too hard or too light. Rest your elbow on a
+            table, cover both, and try again.
+          </p>
+        </div>
+
+        <div class="qa">
+          <h3>The camera doesn't start</h3>
+          <p>
+            HeartSnap needs camera permission. Open <strong>Settings → HeartSnap</strong> on
+            your iPhone and turn <strong>Camera</strong> on. There is nothing to allow beyond
+            that — HeartSnap has no microphone, location, or contacts access.
+          </p>
+        </div>
+
+        <div class="qa">
+          <h3>My readings are missing on another device</h3>
+          <p>
+            Readings sync through your own private iCloud database. Check that both devices
+            are signed into the same Apple Account with iCloud Drive on. If the app shows a
+            paused-sync notice, signing back into iCloud will let it upload.
+          </p>
+        </div>
+
+        <div class="qa">
+          <h3>Is the number accurate?</h3>
+          <p>
+            HeartSnap measures the light passing through your fingertip, and refuses any
+            reading it cannot trust rather than guessing. It is a wellness app, not a medical
+            device: it does not diagnose, treat, or monitor any condition. If a reading
+            concerns you, talk to a doctor rather than to an app.
+          </p>
+        </div>
+      </section>
+
+      <section aria-labelledby="plus-heading">
+        <h2 id="plus-heading">HeartSnap Plus</h2>
+        <p>
+          HeartSnap is free, with three readings a day. HeartSnap Plus removes that limit and
+          adds your full reading history and the Insights screens. It is an auto-renewing
+          subscription, monthly or annual, and the price is shown before you buy.
+        </p>
+        <ul>
+          <li>
+            <strong>Restore a purchase</strong> — Settings inside the app → Restore purchase.
+            Use the same Apple Account you bought with.
+          </li>
+          <li>
+            <strong>Cancel or change plan</strong> — this is handled by Apple, not by me:
+            iPhone <strong>Settings → your name → Subscriptions</strong>. Cancelling stops the
+            next renewal and Plus stays active until the period ends.
+          </li>
+          <li>
+            <strong>Refunds</strong> are also Apple's to issue, at
+            <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener"
+              >reportaproblem.apple.com</a
+            >.
+          </li>
+        </ul>
+        <p>Free readings reset at midnight, local time.</p>
+      </section>
+
+      <section aria-labelledby="data-heading">
+        <h2 id="data-heading">Your data</h2>
+        <p>
+          Readings are stored on your device and in your private iCloud database, which I have
+          no access to. There is no account and no sign-up. Crash reports and usage
+          diagnostics are covered in the <a href="../privacy/">privacy policy</a>, which is the
+          authoritative description of what is collected.
+        </p>
+        <p>
+          You can erase everything from <strong>Settings → Delete all my data</strong> inside
+          the app, including the option to remove samples written to Apple Health.
+        </p>
+        <ul class="routes">
+          <li>
+            <a class="route" href="../privacy/">Privacy policy<span>What is and isn't collected</span></a>
+          </li>
+          <li>
+            <a class="route" href="../terms/">Terms of use<span>Subscription terms</span></a>
+          </li>
+          <li>
+            <a class="route" href="../../">robispan.eu<span>About the developer</span></a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>© <span id="year"></span> Robert Špan</p>
+      <p>
+        HeartSnap is a wellness app and is not a medical device. It does not diagnose, treat,
+        cure, or prevent any condition.
+      </p>
+    </footer>
+
+    <script src="../../script.js"></script>
+  </body>
+</html>
