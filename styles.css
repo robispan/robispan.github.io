@@ -15,7 +15,7 @@
   --sunken: #e5dbd1;
   --ink: #14110f;
   --body: #4a4441;
-  --muted: #7a716c;
+  --muted: #645b55;
   --line: #d8cdc2;
 
   --coral: #c93a20;
@@ -41,11 +41,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #121011;
-    --raised: #211d1e;
-    --sunken: #191516;
+    --raised: #282324;
+    --sunken: #1c1819;
     --ink: #f5f1ee;
     --body: #c3b9b4;
-    --muted: #8d8380;
+    --muted: #9a908c;
     --line: #3a3333;
 
     --coral: #ff7a62;
@@ -101,6 +101,7 @@ section:first-of-type {
 */
 #heartsnap {
   max-width: 62rem;
+  border: 1px solid var(--line);
   margin-inline: calc((46rem - 62rem) / 2);
   background: var(--sunken);
   border-radius: var(--radius);
@@ -348,7 +349,7 @@ header.hero .lead {
    it sits inside main alongside them — it previously borrowed .pulse, which frames the
    homepage waveform and has nothing to do with navigation. */
 .page-nav {
-  padding: clamp(3rem, 8vw, 5.5rem) 0 0;
+  padding: clamp(3rem, 8vw, 5.5rem) 0;
   border-top: 1px solid var(--line);
 }
 
