@@ -1,8 +1,8 @@
 # Robert Špan — Portfolio Website
 
-A clean, modern portfolio website showcasing my work as a Senior Frontend Engineer. Built with vanilla HTML, CSS, and JavaScript for optimal performance and simplicity.
+A clean, modern portfolio website showcasing my work as a Senior Frontend Engineer. Built with vanilla HTML, CSS, and JavaScript for optimal performance and simplicity. 
 
-## 🚀 Live Site
+## 🚀 Live Site 
 
 Visit the live portfolio at: [robispan.eu](https://robispan.eu)
 
