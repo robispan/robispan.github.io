@@ -441,3 +441,13 @@ footer p {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* The HeartSnap section is a pointer now, not the product page it used to be.
+   Its copy column is short, so the screenshot no longer sets a row height the
+   text can fill; centre the two against each other instead of stranding one. */
+#heartsnap .split {
+  align-items: center;
+}
+#heartsnap .images {
+  max-width: 240px;
+}
