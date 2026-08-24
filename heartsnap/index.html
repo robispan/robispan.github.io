@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>HeartSnap — measure your heart rate with your phone's camera</title>
-<meta name="description" content="HeartSnap measures your heart rate with the iPhone camera. Hold a fingertip over the rear camera for fifteen seconds and get a reading in beats per minute, saved with a timestamp and tagged.">
+<title>HeartSnap — heart rate from an iPhone camera</title>
+<meta name="description" content="HeartSnap measures your heart rate with the iPhone camera. Hold a fingertip over the rear camera for fifteen seconds. Free for three readings a day; HeartSnap Plus removes the limit.">
 <link rel="icon" href="assets/app-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,11 +50,11 @@ setTimeout(function () {
       <div class="hero__copy">
         <p class="eyebrow">For iPhone</p>
         <h1>Measure your heart rate with your phone&rsquo;s camera.</h1>
-        <p class="lede">Hold a fingertip over the rear camera for fifteen seconds. HeartSnap reads the change in light passing through your skin and shows your heart rate in beats per minute.</p>
+        <p class="lede">Hold a fingertip over the rear camera and hold still. Fifteen seconds later you have your heart rate in beats per minute.</p>
         <p class="hero__cta">
           <span class="cta-status cta-status--lg">Not yet on the App&nbsp;Store.</span>
         </p>
-        <p class="fineprint">Free with three readings a day. HeartSnap Plus is $2.99&nbsp;/&nbsp;month or $19.99&nbsp;/&nbsp;year.</p>
+        <p class="fineprint">Free for three readings a day, keeping the last three. HeartSnap Plus removes both limits, at $2.99&nbsp;/&nbsp;month or $19.99&nbsp;/&nbsp;year.</p>
       </div>
 
       <div class="hero__device">
@@ -74,7 +74,7 @@ setTimeout(function () {
     <div class="wrap">
       <div class="lede-block reveal">
         <h2>How the measurement works</h2>
-        <p>Each heartbeat changes how much light passes through the skin in your fingertip. With the flash on, the camera picks up that change, and the app reads it over a fixed fifteen-second window. Wrist wearables use the same optical principle.</p>
+        <p>The flash shines into your fingertip and some of that light comes back out. Each heartbeat pushes blood in, which absorbs a little more of it, and the camera is sensitive enough to see the difference. HeartSnap watches that for fifteen seconds.</p>
       </div>
 
       <figure class="window reveal">
@@ -98,7 +98,7 @@ setTimeout(function () {
             <span>15s</span>
           </div>
         </div>
-        <figcaption>The fixed measuring window.</figcaption>
+        <figcaption>Fifteen seconds of a fingertip, as the camera sees it.</figcaption>
       </figure>
 
       <div class="how">
@@ -113,7 +113,7 @@ setTimeout(function () {
           </li>
           <li>
             <span class="steps__n">3</span>
-            <p>Your heart rate appears in beats per minute and is saved with the date and time.</p>
+            <p>Your heart rate appears, saved with the date and time.</p>
           </li>
         </ol>
 
@@ -168,16 +168,16 @@ setTimeout(function () {
         <div class="insights__copy reveal">
           <p class="eyebrow">HeartSnap Plus</p>
           <h2>Insights</h2>
-          <p class="lede-p">HeartSnap Plus adds two Insights screens, opened from the home screen.</p>
+          <p class="lede-p">HeartSnap Plus adds Insights, which compares your readings instead of listing them one at a time.</p>
 
           <dl class="insights__list">
             <div>
               <dt>Your resting HR</dt>
-              <dd>How your resting heart rate is trending over time.</dd>
+              <dd>Whether your resting heart rate is going up or down over weeks.</dd>
             </div>
             <div>
               <dt>Tags compared</dt>
-              <dd>How your readings differ between tags, so you can see whether your heart rate is higher after coffee.</dd>
+              <dd>How much each tag moves your heart rate. Whether coffee really does show up, and by how much.</dd>
             </div>
           </dl>
         </div>
@@ -200,7 +200,7 @@ setTimeout(function () {
     <div class="wrap">
       <div class="lede-block lede-block--center reveal">
         <h2>Where your readings are stored</h2>
-        <p>Readings are stored on your device and sync across your own devices through your personal iCloud account. If you turn it on, readings are also written to Apple Health.</p>
+        <p>Readings are stored on your device and sync between your devices through your iCloud account. HeartSnap can also write them to Apple Health, which is off until you turn it on. The <a href="privacy/">privacy policy</a> covers everything else the app sends, including diagnostics.</p>
       </div>
     </div>
   </section>
@@ -216,11 +216,11 @@ setTimeout(function () {
         <div class="plan reveal">
           <h3 class="plan__name">Free</h3>
           <p class="plan__price"><span class="plan__amount">$0</span></p>
-          <p class="plan__alt">included with the app</p>
+          
           <ul class="plan__list">
-            <li>The full measuring experience</li>
             <li>Three readings a day</li>
-            <li>Your three most recent readings in history</li>
+            <li>Your last three readings, kept</li>
+            <li>Tags on every reading</li>
           </ul>
         </div>
 
@@ -230,12 +230,12 @@ setTimeout(function () {
             <span class="plan__amount">$2.99</span><span class="plan__per">/ month</span>
           </p>
           <p class="plan__alt">or $19.99 / year</p>
+          <p class="plan__note">Charged in your own currency at the price Apple shows you.</p>
           <ul class="plan__list">
             <li>Unlimited readings</li>
-            <li>Both Insights screens: Your resting HR and Tags compared</li>
-            <li>Your complete readings history</li>
+            <li>Insights: resting heart rate over time, and tags compared</li>
+            <li>Every reading you have ever taken, kept</li>
           </ul>
-          <p class="plan__foot">There is no free trial.</p>
         </div>
       </div>
 
@@ -252,10 +252,10 @@ setTimeout(function () {
     <div class="site-foot__brand">
       <img src="assets/app-icon.png" alt="" width="1024" height="1024" loading="lazy" decoding="async">
       <span>HeartSnap</span>
+      <span class="site-foot__by">Built and maintained by one person.</span>
     </div>
     <div class="site-foot__text">
       <p>HeartSnap is a wellness app. It does not diagnose or treat any condition, and it is not a medical device.</p>
-      <p>HeartSnap is built and maintained by one person.</p>
     </div>
     <p class="site-foot__meta">&copy; 2026 HeartSnap</p>
     <nav class="site-foot__links" aria-label="HeartSnap pages">
