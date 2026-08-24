@@ -23,13 +23,18 @@ function drawPulse() {
   }
 
   var ctx = canvas.getContext("2d");
-  var bpmEl = document.getElementById("bpm");
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   var BPM = 68;
   var CYCLE_PX = 150;
-  var speed = 0.85;
+
+  // Derived, not guessed. The old code advanced a fixed 0.85px per *frame*, which works out
+  // to 20 bpm at 60Hz and 41 bpm at 120Hz — never the rate it claimed, and a different wrong
+  // rate per device. Elapsed time makes it frame-rate independent.
+  var PX_PER_SECOND = (BPM / 60) * CYCLE_PX;
   var offset = 0;
+  var lastFrame = 0;
+  var running = true;
 
   function size() {
     var ratio = window.devicePixelRatio || 1;
@@ -70,15 +75,17 @@ function drawPulse() {
   function tone() {
     var css = getComputedStyle(document.documentElement);
     return {
-      trace: css.getPropertyValue("--coral").trim() || "#d9452b",
+      trace: css.getPropertyValue("--coral-trace").trim() || "#d9452b",
       grid: css.getPropertyValue("--line").trim() || "#e8e3df",
     };
   }
 
   function render() {
-    var rect = size();
-    var w = rect.width;
-    var h = rect.height;
+    // Deliberately does not call size(): assigning canvas.width reallocates the backing
+    // store and resets the context, so doing it per frame was a forced layout plus a full
+    // reallocation sixty times a second, forever.
+    var w = canvas.clientWidth;
+    var h = canvas.clientHeight;
     var colour = tone();
     var baseline = h * 0.82;
     var amp = h * 0.6;
@@ -111,21 +118,43 @@ function drawPulse() {
     ctx.stroke();
   }
 
-  function tick() {
-    offset += speed;
+  function tick(now) {
+    if (!running) {
+      lastFrame = 0;
+      return;
+    }
+
+    if (lastFrame) {
+      offset += PX_PER_SECOND * ((now - lastFrame) / 1000);
+    }
+    lastFrame = now;
+
     render();
     window.requestAnimationFrame(tick);
   }
 
-  if (bpmEl) {
-    bpmEl.textContent = String(BPM);
-  }
-
+  size();
   render();
-  window.addEventListener("resize", render);
+  window.addEventListener("resize", function () {
+    size();
+    render();
+  });
 
   // Reduced motion still gets the trace, just held still rather than scrolling.
-  if (!reduced) {
-    window.requestAnimationFrame(tick);
+  if (reduced) {
+    return;
   }
+
+  // No reason to burn frames on a hero nobody is looking at.
+  if (window.IntersectionObserver) {
+    new window.IntersectionObserver(function (entries) {
+      var wasRunning = running;
+      running = entries[0].isIntersecting;
+      if (running && !wasRunning) {
+        window.requestAnimationFrame(tick);
+      }
+    }).observe(canvas);
+  }
+
+  window.requestAnimationFrame(tick);
 }
