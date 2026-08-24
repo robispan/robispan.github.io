@@ -1,101 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta
-      name="description"
-      content="Robert Špan — senior frontend engineer. Maker of HeartSnap, an iOS app that reads your pulse through the phone camera."
-    />
-    <meta name="theme-color" content="#fbfaf9" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121011" media="(prefers-color-scheme: dark)" />
-    <title>Robert Špan — Frontend Engineer</title>
-    <link rel="icon" type="image/png" href="img/favicon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=JetBrains+Mono:wght@400;500;600&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-
-  <body>
-    <header class="hero">
-      <p class="eyebrow">Senior frontend engineer · Turtl</p>
-      <h1>Robert Špan</h1>
-      <p class="lead">
-        I work mostly in Angular and TypeScript. I also built HeartSnap, an iOS app that
-        measures your heart rate using the phone's camera.
-      </p>
-    </header>
-
-    <main id="main">
-      <section id="heartsnap" aria-labelledby="heartsnap-heading">
-        <p class="eyebrow">Shipped &middot; iOS</p>
-        <h2 id="heartsnap-heading">HeartSnap</h2>
-
-        <p>
-          An iOS app that measures your heart rate with the phone&rsquo;s camera. Put a
-          fingertip over the camera and flash, and hold still. Each heartbeat changes how
-          much light passes through your skin, and HeartSnap reads it for fifteen seconds.
-        </p>
-        <p>
-          Readings stay on your device and in your own private iCloud. No account, no
-          sign-up.
-        </p>
-
-        <ul class="routes">
-          <li>
-            <a class="route" href="heartsnap/">HeartSnap<span>What it does, and what it costs</span></a>
-          </li>
-          <li>
-            <a class="route" href="heartsnap/support/">Support<span>Help and contact</span></a>
-          </li>
-        </ul>
-      </section>
-
-
-      <section id="contact" aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
-        <p>
-          For HeartSnap, start with the <a href="heartsnap/support/">support page</a>. For
-          anything else, email.
-        </p>
-        <ul class="contact-list">
-          <li>
-            <span class="k">Email</span>
-            <a href="mailto:contact@robispan.eu">contact@robispan.eu</a>
-          </li>
-          <li>
-            <span class="k">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/robert-špan/" target="_blank" rel="noopener"
-              >linkedin.com/in/robert-špan</a
-            >
-          </li>
-          <li>
-            <span class="k">GitHub</span>
-            <a href="https://github.com/robispan" target="_blank" rel="noopener"
-              >github.com/robispan</a
-            >
-          </li>
-        </ul>
-      </section>
-    </main>
-
-    <footer>
-      <p>© 2026 Robert Špan</p>
-      <p>
-        <a href="heartsnap/">HeartSnap</a> ·
-        <a href="heartsnap/support/">Support</a> ·
-        <a href="heartsnap/privacy/">Privacy policy</a> ·
-        <a href="heartsnap/terms/">Terms of use</a>
-      </p>
-      <p>
-        HeartSnap is a wellness app and is not a medical device. It does not diagnose, treat,
-        cure, or prevent any condition.
-      </p>
-    </footer>
-
-  </body>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HeartSnap</title>
+<meta http-equiv="refresh" content="0; url=/heartsnap/">
+<link rel="canonical" href="https://www.robispan.eu/heartsnap/">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/heartsnap/assets/app-icon.png" type="image/png">
+<style>
+  /* Self-contained: this page should paint correctly in the instant before the
+     refresh fires, and remain usable for anyone whose browser ignores it. */
+  :root { color-scheme: light dark; --bg: #FFFBF7; --ink: #16212A; --coral: #B02E20; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #101418; --ink: #F3EEE9; --coral: #FF8E7F; }
+  }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  a { color: var(--coral); }
+</style>
+</head>
+<body>
+<p>This page has moved to <a href="/heartsnap/">robispan.eu/heartsnap</a>.</p>
+</body>
 </html>
