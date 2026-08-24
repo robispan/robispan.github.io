@@ -1,12 +1,11 @@
 /*
-  Shared across the homepage, the HeartSnap support page, and the legal pages.
-  The legal pages predate this rewrite and still use .hero / .lead / .muted / main#main,
-  so those hooks are kept working deliberately — changing them would silently break the two
-  URLs the App Store listing points at.
+  The homepage only. The HeartSnap product page and its support, privacy and terms pages
+  moved to heartsnap/styles.css, set in the app's own brand type — this file stopped being
+  shared when they did, and the hooks they used to borrow from it are gone with them.
 
-  Palette: warm paper and warm ink rather than white-on-black, with the app's own coral as
-  the single accent. The coral appears only on the pulse trace, links, and one rule, so the
-  trace stays the thing you remember.
+  Palette: warm paper and warm ink rather than white-on-black, with the app's coral as the
+  single accent. It is the one thing held in common with the product pages, so crossing
+  between the two systems reads as deliberate.
 */
 
 :root {
@@ -96,24 +95,17 @@ section:first-of-type {
 
 /*
   The one change of surface on the page. Without it the eye gets only vertical whitespace,
-  identical for every section, which is what "flat" actually was. This also breaks wider
-  than the prose shell so the product gets the room its two columns need.
+  identical for every section, which is what "flat" actually was. It used to break wider
+  than the prose shell to fit two columns; the screenshot moved to the product page, so it
+  sits in the shell now and lines up with the hero and Contact.
 */
 #heartsnap {
-  max-width: 62rem;
   border: 1px solid var(--line);
-  margin-inline: calc((46rem - 62rem) / 2);
   background: var(--sunken);
   border-radius: var(--radius);
   border-top: 0;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
   padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
-}
-
-@media (max-width: 64rem) {
-  #heartsnap {
-    max-width: none;
-    margin-inline: 0;
-  }
 }
 
 h1,
@@ -167,8 +159,7 @@ strong {
   font-weight: 600;
 }
 
-a,
-.link {
+a {
   color: var(--coral);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
@@ -191,11 +182,6 @@ a:hover {
   max-width: 46ch;
 }
 
-.muted {
-  color: var(--muted);
-  font-size: 0.94rem;
-}
-
 /* Uppercase mono is the utility register throughout: it marks metadata about the content
    rather than the content itself. */
 .eyebrow {
@@ -214,80 +200,15 @@ a:hover {
 header.hero {
   max-width: 46rem;
   margin: 0 auto;
-  padding: clamp(3.5rem, 10vw, 7rem) var(--gutter) clamp(2rem, 5vw, 3rem);
+  padding: clamp(3.5rem, 10vw, 7rem) var(--gutter) clamp(3rem, 7vw, 4.5rem);
 }
 
 header.hero .lead {
   margin-bottom: 0;
 }
 
-/*
-  The pulse trace — the one element specific to what this subject actually built: a
-  photoplethysmogram, the waveform HeartSnap derives from light passing through a
-  fingertip. Drawn rather than illustrated, because on an engineer's site the rendering is
-  the argument.
-*/
-.pulse {
-  max-width: 46rem;
-  margin: 0 auto;
-  padding: 0 var(--gutter);
-}
-
-.pulse__frame {
-  position: relative;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--raised);
-  box-shadow: var(--lift);
-  overflow: hidden;
-}
-
-.pulse__canvas {
-  display: block;
-  width: 100%;
-  height: clamp(140px, 22vw, 200px);
-}
-
-.pulse__caption {
-  margin: 0.9rem 0 0;
-  font-family: var(--mono);
-  font-size: 0.85rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--muted);
-  max-width: var(--measure);
-}
-
 /* ---------- blocks ---------- */
 
-
-.split {
-  display: grid;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: start;
-}
-
-@media (min-width: 52rem) {
-  .split {
-    grid-template-columns: 1.05fr 0.95fr;
-  }
-}
-
-.images {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  max-width: 300px;
-}
-
-.images img,
-.image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-}
 
 /* ---------- routes ---------- */
 
@@ -345,14 +266,6 @@ header.hero .lead {
   margin-top: 0.15rem;
 }
 
-/* The cross-page links at the foot of the legal pages. Matches a section's rhythm because
-   it sits inside main alongside them — it previously borrowed .pulse, which frames the
-   homepage waveform and has nothing to do with navigation. */
-.page-nav {
-  padding: clamp(3rem, 8vw, 5.5rem) 0;
-  border-top: 1px solid var(--line);
-}
-
 /* ---------- contact ---------- */
 
 .contact-list {
@@ -381,33 +294,6 @@ header.hero .lead {
   text-transform: uppercase;
   color: var(--muted);
   min-width: 5.5rem;
-}
-
-/* ---------- support page ---------- */
-
-.qa {
-  border-top: 1px solid var(--line);
-  padding: 1.4rem 0 0.4rem;
-}
-
-.qa:first-of-type {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.notice {
-  border-left: 2px solid var(--line);
-  background: var(--raised);
-  box-shadow: var(--lift);
-  color: var(--ink);
-  padding: 1rem 1.15rem;
-  border-radius: 0 10px 10px 0;
-  margin: 0 0 1.5rem;
-}
-
-.notice p {
-  margin: 0;
-  max-width: none;
 }
 
 /* ---------- footer ---------- */
@@ -440,14 +326,4 @@ footer p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-}
-
-/* The HeartSnap section is a pointer now, not the product page it used to be.
-   Its copy column is short, so the screenshot no longer sets a row height the
-   text can fill; centre the two against each other instead of stranding one. */
-#heartsnap .split {
-  align-items: center;
-}
-#heartsnap .images {
-  max-width: 240px;
 }
