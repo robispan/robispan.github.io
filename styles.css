@@ -344,6 +344,14 @@ header.hero .lead {
   margin-top: 0.15rem;
 }
 
+/* The cross-page links at the foot of the legal pages. Matches a section's rhythm because
+   it sits inside main alongside them — it previously borrowed .pulse, which frames the
+   homepage waveform and has nothing to do with navigation. */
+.page-nav {
+  padding: clamp(3rem, 8vw, 5.5rem) 0 0;
+  border-top: 1px solid var(--line);
+}
+
 /* ---------- contact ---------- */
 
 .contact-list {
