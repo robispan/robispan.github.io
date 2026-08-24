@@ -22,16 +22,14 @@
 
   <body>
     <header class="hero">
-      <p class="eyebrow">Frontend engineer</p>
+      <p class="eyebrow">Senior frontend engineer · Turtl</p>
       <h1>Robert Špan</h1>
       <p class="lead">
         I build web interfaces, mostly Angular and TypeScript. On my own time I built
         HeartSnap — an iOS app that measures a heartbeat through a phone camera, and tells
         you when it couldn't.
       </p>
-    </header>
-
-    <div class="pulse">
+      <div class="pulse">
       <div class="pulse__frame">
         <canvas
           id="pulse"
@@ -39,17 +37,14 @@
           role="img"
           aria-label="An animated pulse waveform of the kind HeartSnap derives from light passing through a fingertip."
         ></canvas>
-        <div class="pulse__readout" aria-hidden="true">
-          <span class="pulse__bpm" id="bpm">68</span>
-          <span class="pulse__unit">bpm</span>
-        </div>
       </div>
       <p class="pulse__caption">
-        Illustrative, not a live reading. The sharp rise is the heart contracting; the dip
-        just after it is the aortic valve closing. HeartSnap finds both in the flicker of
-        light through a fingertip.
+        A photoplethysmogram. The sharp rise is the heart contracting; the dip just after,
+        the aortic valve closing. HeartSnap finds both in the flicker of light through a
+        fingertip.
       </p>
-    </div>
+      </div>
+    </header>
 
     <main id="main">
       <section id="heartsnap" aria-labelledby="heartsnap-heading">
@@ -66,25 +61,14 @@
             </p>
             <p>
               It also refuses. A shaky hand or a half-covered lens produces something that
-              <em>looks</em> like a pulse and isn't, and HeartSnap would rather say it
-              couldn't get a stable reading than hand you a confident wrong number.
+              <em>looks</em> like a pulse and isn't. HeartSnap says it couldn't get a stable
+              reading instead of handing you a confident wrong number.
             </p>
             <p>
               Readings stay on your device and in your own private iCloud. No account, no
               sign-up.
             </p>
 
-            <ul class="routes">
-              <li>
-                <a class="route" href="heartsnap/support/">Support<span>Help and contact</span></a>
-              </li>
-              <li>
-                <a class="route" href="heartsnap/privacy/">Privacy<span>What leaves the device</span></a>
-              </li>
-              <li>
-                <a class="route" href="heartsnap/terms/">Terms<span>Terms of use</span></a>
-              </li>
-            </ul>
           </div>
 
           <div class="images">
@@ -97,17 +81,20 @@
                 loading="lazy"
               />
             </div>
-            <div class="image">
-              <img
-                src="img/heartsnap-home.png"
-                alt="The HeartSnap home screen, with the day's reading count and the Insights entry points."
-                width="572"
-                height="1200"
-                loading="lazy"
-              />
-            </div>
           </div>
         </div>
+
+        <ul class="routes">
+          <li>
+            <a class="route" href="heartsnap/support/">Support<span>Help and contact</span></a>
+          </li>
+          <li>
+            <a class="route" href="heartsnap/privacy/">Privacy<span>What leaves the device</span></a>
+          </li>
+          <li>
+            <a class="route" href="heartsnap/terms/">Terms<span>Terms of use</span></a>
+          </li>
+        </ul>
       </section>
 
       <section id="about" aria-labelledby="about-heading">
@@ -126,11 +113,10 @@
       </section>
 
       <section id="contact" aria-labelledby="contact-heading">
-        <p class="eyebrow">Get in touch</p>
         <h2 id="contact-heading">Contact</h2>
         <p>
-          For help with HeartSnap, the <a href="heartsnap/support/">support page</a> answers
-          the common questions first. Anything else, email is best.
+          For HeartSnap, start with the <a href="heartsnap/support/">support page</a>. For
+          anything else, email.
         </p>
         <ul class="contact-list">
           <li>

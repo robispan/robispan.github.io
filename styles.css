@@ -12,14 +12,18 @@
 :root {
   --paper: #fbfaf9;
   --raised: #ffffff;
-  --sunken: #f3efec;
+  --sunken: #e5dbd1;
   --ink: #14110f;
   --body: #4a4441;
-  --muted: #8a817c;
-  --line: #e8e3df;
+  --muted: #7a716c;
+  --line: #d8cdc2;
 
-  --coral: #d9452b;
+  --coral: #c93a20;
   --coral-soft: #fdeeea;
+
+  /* The trace keeps the brighter red: it is a graphic, not text, so it is not bound by the
+     contrast minimum that forced --coral darker for links. */
+  --coral-trace: #d9452b;
 
   --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --text: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -29,24 +33,27 @@
   --gutter: clamp(1.25rem, 5vw, 3rem);
 
   --focus: var(--coral);
-  --focus-ring: 0 0 0 3px rgba(217, 69, 43, 0.28);
+  --focus-ring: 0 0 0 3px rgba(201, 58, 32, 0.28);
   --radius: 14px;
+  --lift: 0 1px 2px rgba(20, 17, 15, 0.04), 0 1px 8px rgba(20, 17, 15, 0.03);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #121011;
-    --raised: #1a1718;
-    --sunken: #201c1d;
+    --raised: #211d1e;
+    --sunken: #191516;
     --ink: #f5f1ee;
     --body: #c3b9b4;
     --muted: #8d8380;
-    --line: #2b2626;
+    --line: #3a3333;
 
     --coral: #ff7a62;
     --coral-soft: #2a1611;
+    --coral-trace: #ff7a62;
 
-    --focus-ring: 0 0 0 3px rgba(255, 122, 98, 0.3);
+  --focus-ring: 0 0 0 3px rgba(255, 122, 98, 0.3);
+    --lift: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 10px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -73,7 +80,7 @@ body {
 /* ---------- shared rhythm ---------- */
 
 main {
-  max-width: 62rem;
+  max-width: 46rem;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
@@ -85,6 +92,27 @@ section {
 
 section:first-of-type {
   border-top: 0;
+}
+
+/*
+  The one change of surface on the page. Without it the eye gets only vertical whitespace,
+  identical for every section, which is what "flat" actually was. This also breaks wider
+  than the prose shell so the product gets the room its two columns need.
+*/
+#heartsnap {
+  max-width: 62rem;
+  margin-inline: calc((46rem - 62rem) / 2);
+  background: var(--sunken);
+  border-radius: var(--radius);
+  border-top: 0;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+@media (max-width: 64rem) {
+  #heartsnap {
+    max-width: none;
+    margin-inline: 0;
+  }
 }
 
 h1,
@@ -130,6 +158,7 @@ ul {
 
 li {
   margin-bottom: 0.5em;
+  max-width: 56ch;
 }
 
 strong {
@@ -151,7 +180,6 @@ a:hover {
 :where(a, button, summary, [tabindex]):focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 3px;
-  border-radius: 4px;
   box-shadow: var(--focus-ring);
 }
 
@@ -177,13 +205,13 @@ a:hover {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 1.1rem;
+  margin: 0 0 0.5rem;
 }
 
 /* ---------- hero ---------- */
 
 header.hero {
-  max-width: 62rem;
+  max-width: 46rem;
   margin: 0 auto;
   padding: clamp(3.5rem, 10vw, 7rem) var(--gutter) clamp(2rem, 5vw, 3rem);
 }
@@ -199,7 +227,7 @@ header.hero .lead {
   the argument.
 */
 .pulse {
-  max-width: 62rem;
+  max-width: 46rem;
   margin: 0 auto;
   padding: 0 var(--gutter);
 }
@@ -209,6 +237,7 @@ header.hero .lead {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--raised);
+  box-shadow: var(--lift);
   overflow: hidden;
 }
 
@@ -216,31 +245,6 @@ header.hero .lead {
   display: block;
   width: 100%;
   height: clamp(140px, 22vw, 200px);
-}
-
-.pulse__readout {
-  position: absolute;
-  left: clamp(0.9rem, 2vw, 1.4rem);
-  top: clamp(0.7rem, 2vw, 1.1rem);
-  display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
-  font-family: var(--mono);
-  font-variant-numeric: tabular-nums;
-}
-
-.pulse__bpm {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 600;
-  color: var(--ink);
-  line-height: 1;
-}
-
-.pulse__unit {
-  font-size: 0.68rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--muted);
 }
 
 .pulse__caption {
@@ -255,12 +259,6 @@ header.hero .lead {
 
 /* ---------- blocks ---------- */
 
-.card {
-  background: var(--raised);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: clamp(1.25rem, 3vw, 2rem);
-}
 
 .split {
   display: grid;
@@ -276,8 +274,9 @@ header.hero .lead {
 
 .images {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
+  max-width: 300px;
 }
 
 .images img,
@@ -322,8 +321,17 @@ header.hero .lead {
   font-size: 0.95rem;
 }
 
+.route {
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
 .route:hover {
   border-color: var(--coral);
+  box-shadow: var(--lift);
+  transform: translateY(-1px);
 }
 
 .route span {
@@ -379,8 +387,9 @@ header.hero .lead {
 }
 
 .notice {
-  border-left: 2px solid var(--coral);
-  background: var(--coral-soft);
+  border-left: 2px solid var(--line);
+  background: var(--raised);
+  box-shadow: var(--lift);
   color: var(--ink);
   padding: 1rem 1.15rem;
   border-radius: 0 10px 10px 0;
@@ -395,7 +404,7 @@ header.hero .lead {
 /* ---------- footer ---------- */
 
 footer {
-  max-width: 62rem;
+  max-width: 46rem;
   margin: 0 auto;
   padding: 2.5rem var(--gutter) 4rem;
   border-top: 1px solid var(--line);
