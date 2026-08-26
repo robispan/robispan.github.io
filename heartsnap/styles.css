@@ -388,6 +388,14 @@ h3 {
 }
 .lede-block--center p { margin-inline: auto; }
 
+/* Overrides `.lede-block p`'s larger size so a disclaimer stacked under the
+   main paragraph reads as visually secondary, not a second body sentence. */
+.lede-block p.fineprint {
+  max-width: none;
+  font-size: 0.86rem;
+  margin-top: 0.9rem;
+}
+
 /* ---------- the fifteen-second window graphic ---------- */
 .window {
   margin: clamp(2.5rem, 6vw, 3.75rem) 0 clamp(2.75rem, 7vw, 4.25rem);
