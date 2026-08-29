@@ -47,7 +47,7 @@
           </li>
           <li>
             <strong>Apple Health</strong> (optional, write-only) when you save
-            a reading, so the measurement appears alongside your other health
+            a measurement, so it appears alongside your other health
             data.
           </li>
           <li>
@@ -66,14 +66,14 @@
       <section aria-labelledby="storage-heading">
         <h2 id="storage-heading">Storage and access</h2>
         <p>
-          All HeartSnap-owned data — your heart-rate readings, the optional
+          All HeartSnap-owned data — your heart-rate measurements, the optional
           context tag and how you felt, and the details you choose to add about
           yourself (date of birth, biological sex) — is stored in your iCloud
           account's private database. HeartSnap does not have access to this
           data.
         </p>
         <p>
-          A copy of each heart-rate reading is also written to Apple Health on
+          A copy of each heart-rate measurement is also written to Apple Health on
           your device so that it appears alongside your other health data.
           HeartSnap never reads from Apple Health; the write is one-way.
         </p>
@@ -83,7 +83,7 @@
         <h2 id="encryption-heading">Encryption</h2>
         <p>
           Your data is encrypted in transit and at rest. The context tag and
-          feeling attached to each reading, and everything in your profile
+          feeling attached to each measurement, and everything in your profile
           (date of birth, biological sex), are end-to-end
           encrypted using CloudKit's encrypted-values feature, which means they
           remain encrypted under your iCloud key even when Advanced Data
@@ -97,7 +97,7 @@
       <section aria-labelledby="leaves-heading">
         <h2 id="leaves-heading">What leaves your device</h2>
         <p>
-          Your stored readings — the history you see in the app — stay in your
+          Your stored measurements — the history you see in the app — stay in your
           own iCloud account. Separately, three streams of technical data go to
           service providers so the app can be kept working. None of them is
           linked to an account, a name, or an advertising identifier, and
@@ -123,7 +123,7 @@
           </li>
           <li>
             <strong>Failed-measurement diagnostics</strong> (Google Cloud
-            Firestore). When a measurement fails to produce a reading,
+            Firestore). When a measurement fails to produce a result,
             HeartSnap uploads why it failed, how long it ran, your device model
             and iOS version, and a log of the measurement attempt — how many
             pulses were detected, how many were rejected and why, and how long
@@ -146,7 +146,7 @@
           HeartSnap processes special-category data (heart-rate measurements,
           optional date of birth and biological sex) under GDPR Art. 9(2)(a) —
           explicit consent. By tapping <strong>Save</strong>, you consent to
-          processing the reading on your device and storing it in your iCloud
+          processing the measurement on your device and storing it in your iCloud
           account.
         </p>
         <p>
@@ -166,7 +166,7 @@
           When you delete HeartSnap, iOS may ask whether you also want to
           delete your Health data. If you tap Delete, the heart-rate samples
           HeartSnap wrote to Apple Health are removed. Your HeartSnap-owned
-          readings stored in your iCloud private database are unaffected and
+          measurements stored in your iCloud private database are unaffected and
           will return on reinstall.
         </p>
         <p>
