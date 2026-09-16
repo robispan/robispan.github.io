@@ -559,21 +559,6 @@ h3 {
 .plan--paid { border-color: var(--coral-graphic); }
 
 .plan__name { margin-bottom: 1rem; }
-.plan__price {
-  display: flex;
-  align-items: baseline;
-  gap: 0.45rem;
-  flex-wrap: wrap;
-}
-.plan__amount {
-  font-family: var(--font-display);
-  font-size: clamp(2.3rem, 5vw, 2.9rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.006em;
-}
-.plan__per { color: var(--muted); font-size: 1rem; font-weight: 500; }
-.plan__alt { color: var(--muted); font-size: 0.98rem; margin-top: 0.45rem; }
 
 .plan__list {
   display: grid;
