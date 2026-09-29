@@ -4,183 +4,38 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LightPulse — Support</title>
-<meta name="description" content="LightPulse support — how to take a measurement, what to do when a measurement fails, managing LightPulse Plus, and how to get in touch.">
-<meta name="theme-color" content="#FFFBF7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#101418" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="../assets/app-icon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400..600&family=Nunito:wght@400..800&display=swap">
-<link rel="stylesheet" href="../styles.css">
+<meta http-equiv="refresh" content="0; url=/lightpulse/support/">
+<link rel="canonical" href="https://www.robispan.eu/lightpulse/support/">
+<meta name="robots" content="noindex">
+<!-- The app was renamed HeartSnap → LightPulse on 2026-09-29. Old /heartsnap/ URLs live on in
+     shipped app builds and App Store metadata, and GitHub Pages cannot send a 301, so each
+     old path is this stub. The script keeps any #fragment; the meta refresh covers no-JS. -->
+<script>location.replace('/lightpulse/support/' + location.hash)</script>
+<link rel="icon" href="/lightpulse/assets/app-icon.png" type="image/png">
+<style>
+  /* Self-contained: this page should paint correctly in the instant before the
+     refresh fires, and remain usable for anyone whose browser ignores it. */
+  :root { color-scheme: light dark; --bg: #FFFBF7; --ink: #16212A; --coral: #B02E20; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #101418; --ink: #F3EEE9; --coral: #FF8E7F; }
+  }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+  }
+  a { color: var(--coral); }
+</style>
 </head>
 <body>
-
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="site-head">
-  <div class="wrap site-head__inner">
-    <a class="wordmark" href="../">
-      <img src="../assets/app-icon.png" alt="" width="1024" height="1024" decoding="async">
-      <span>LightPulse</span>
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="../#how">How it works</a>
-      <a href="../#pricing">Pricing</a>
-    </nav>
-  </div>
-</header>
-
-<main id="main" class="doc">
-  <div class="wrap doc__inner">
-    <div class="doc__head">
-<p class="eyebrow">LightPulse · Support</p>
-<h1>Help with LightPulse</h1>
-<p class="lede">Contact is first. The common questions are below it.</p>
-<p>LightPulse was called HeartSnap until 29 September 2026. Only the name changed.</p>
-    </div>
-      <section aria-labelledby="contact-heading">
-        <h2 id="contact-heading">Contact</h2>
-        <div class="notice">
-          <p>
-            <strong>Email <a href="mailto:contact@robispan.eu">contact@robispan.eu</a></strong>
-            — telling us your iPhone model and iOS version saves a round trip.
-          </p>
-        </div>
-      </section>
-
-      <section aria-labelledby="reading-heading">
-        <h2 id="reading-heading">Taking a measurement</h2>
-        <p>
-          LightPulse measures your pulse with the rear camera and flash. Each heartbeat changes
-          how much light passes through your fingertip, and the app reads that change.
-        </p>
-        <ul>
-          <li>Cover <strong>both the rear camera lens and the flash</strong> with one fingertip.</li>
-          <li>Use gentle, steady pressure — pressing hard flattens the signal.</li>
-          <li>Rest your hand on something and keep still for the full <strong>15 seconds</strong>.</li>
-          <li>The flash stays on the whole time. The phone getting slightly warm is normal.</li>
-        </ul>
-        <p class="muted">
-          A physical iPhone with a flash is required. LightPulse cannot work on iPad or in the
-          Simulator.
-        </p>
-      </section>
-
-      <section aria-labelledby="problems-heading">
-        <h2 id="problems-heading">If something goes wrong</h2>
-
-        <div class="qa">
-          <h3>When a measurement can’t be completed</h3>
-          <p>
-            The signal was too noisy to trust, so LightPulse stopped rather than guess.
-          </p>
-          <p>
-            Almost always one of: the fingertip is not covering both the lens and the flash,
-            the hand is moving, or the pressure is too hard or too light. Rest your elbow on a
-            table, cover both, and try again.
-          </p>
-          <p class="muted">A wrong number would be worse than no number.</p>
-        </div>
-
-        <div class="qa">
-          <h3>The camera doesn't start</h3>
-          <p>
-            LightPulse needs camera permission. Open <strong>Settings → LightPulse</strong> on
-            your iPhone and turn <strong>Camera</strong> on. There is nothing to allow beyond
-            that — LightPulse has no microphone, location, or contacts access.
-          </p>
-        </div>
-
-        <div class="qa">
-          <h3>My measurements are missing on another device</h3>
-          <p>
-            Measurements sync through your own private iCloud database. Check that both devices
-            are signed into the same Apple Account with iCloud Drive on. If the app shows a
-            paused-sync notice, signing back into iCloud will let it upload.
-          </p>
-        </div>
-
-        <div class="qa">
-          <h3>Is LightPulse a medical device?</h3>
-          <p>
-            No. LightPulse is a wellness app: it does not diagnose, treat, or monitor any
-            condition. It measures the light passing through your fingertip and refuses any
-            measurement it cannot trust rather than guessing. If a measurement concerns you, talk to
-            a doctor rather than to an app.
-          </p>
-        </div>
-      </section>
-
-      <section aria-labelledby="plus-heading">
-        <h2 id="plus-heading">LightPulse Plus</h2>
-        <p>
-          LightPulse is free, with three measurements a day. LightPulse Plus removes that limit and
-          adds your full measurement history and the Insights screens. It is an auto-renewing
-          subscription, and the plans and their prices are shown before you buy.
-        </p>
-        <ul>
-          <li>
-            <strong>Restore a purchase</strong> — Settings inside the app → Restore purchase.
-            Use the same Apple Account you bought with.
-          </li>
-          <li>
-            <strong>Cancel or change plan</strong> — this is handled by Apple, not by us:
-            iPhone <strong>Settings → your name → Subscriptions</strong>. Cancelling stops the
-            next renewal and Plus stays active until the period ends.
-          </li>
-          <li>
-            <strong>Refunds</strong> are also Apple's to issue, at
-            <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener"
-              >reportaproblem.apple.com</a
-            >.
-          </li>
-        </ul>
-        <p>Free measurements reset at midnight, local time.</p>
-      </section>
-
-      <section aria-labelledby="data-heading">
-        <h2 id="data-heading">Your data</h2>
-        <p>
-          Measurements are stored on your device and in your private iCloud database, which we
-          cannot access. There is no account and no sign-up. Crash reports and usage
-          diagnostics are covered in the <a href="../privacy/">privacy policy</a>, which is the
-          authoritative description of what is collected.
-        </p>
-        <p>
-          You can erase everything from <strong>Settings → Delete all my data</strong> inside
-          the app, including the option to remove samples written to Apple Health.
-        </p>
-        <ul class="routes">
-          <li>
-            <a class="route" href="../privacy/">Privacy policy<span>What is and isn't collected</span></a>
-          </li>
-          <li>
-            <a class="route" href="../terms/">Terms of use<span>Subscription terms</span></a>
-          </li>
-        </ul>
-      </section>
-    
-  </div>
-</main>
-
-<footer class="site-foot">
-  <div class="wrap site-foot__inner">
-    <div class="site-foot__brand">
-      <img src="../assets/app-icon.png" alt="" width="1024" height="1024" loading="lazy" decoding="async">
-      <span>LightPulse</span>
-    </div>
-    <div class="site-foot__text">
-      <p>LightPulse is a wellness app. It does not diagnose or treat any condition, and it is not a medical device.</p>
-    </div>
-    <p class="site-foot__meta">&copy; 2026 Robert &#352;pan</p>
-    <nav class="site-foot__links" aria-label="LightPulse pages">
-      <a href="../">LightPulse</a>
-      <a href="../support/" aria-current="page">Support</a>
-      <a href="../privacy/">Privacy policy</a>
-      <a href="../terms/">Terms of use</a>
-    </nav>
-  </div>
-</footer>
-
+<p>This page has moved to <a href="/lightpulse/support/">robispan.eu/lightpulse/support</a>.</p>
 </body>
 </html>
