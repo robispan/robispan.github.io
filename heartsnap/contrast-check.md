@@ -1,4 +1,4 @@
-# Contrast audit — HeartSnap marketing page
+# Contrast audit — LightPulse marketing page
 
 Every text-colour-on-background-colour pair the page actually renders, in both themes.
 Ratios are WCAG 2.1 relative-luminance contrast. Target: **4.5:1** for body text, 3:1 for large text.
