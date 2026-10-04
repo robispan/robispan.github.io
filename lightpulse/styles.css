@@ -220,8 +220,6 @@ h3 {
 }
 
 /* ---------- buttons ---------- */
-/* Unused while the CTA is the inactive .cta-status placeholder. Kept because the swap
-   back at launch is a one-line markup change, not a restyle. */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -668,27 +666,6 @@ h3 {
     [data-reveal='ready'] .stagger__item--b { transform: translateY(2.5rem); }
   }
   .btn:hover { transform: none; }
-}
-
-/* ---------- pre-launch CTA placeholder ---------- */
-.cta-status {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: var(--font-sans);
-  font-size: 0.98rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--muted);
-  background-color: transparent;
-  border: 1px solid var(--hairline);
-  padding: 0.9rem 1.6rem;
-  border-radius: 999px;
-}
-.cta-status--lg {
-  font-size: 1.04rem;
-  padding: 1.05rem 2rem;
 }
 
 /* ---------- footer page links ---------- */
